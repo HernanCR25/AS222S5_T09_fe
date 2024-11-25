@@ -7,7 +7,7 @@ import { ChatGptModel } from "../models/chat.model";
   providedIn: "root",
 })
 export class ApiService {
-  private apiUrl = "https://stunning-telegram-x5wg56pvqwqh6qpx-8080.app.github.dev/api";
+  private apiUrl = "https://ubiquitous-succotash-p46rw4j6gqjfr5v6-8085.app.github.dev/api";
 
   constructor(private http: HttpClient) {}
 

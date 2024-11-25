@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   //apigpt_fe: 'https://expert-sniffle-x74wp754r4vfw66-8085.app.github.dev/api'
   apigpt_fe: '${API_BACKEND}'
 };

@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ChatGptModel } from "../models/chat.model";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: "root",
 })
 export class ApiService {
-  private apiUrl = "https://ubiquitous-succotash-p46rw4j6gqjfr5v6-8085.app.github.dev/api";
+  private apiUrl: string = environment.apigpt_fe;
 
   constructor(private http: HttpClient) {}
 

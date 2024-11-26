@@ -20,12 +20,14 @@ export class ApiService {
         role: "user",
       },
     ];
-    return this.http.post(
-      `${this.apiUrl}/ask`,
-      JSON.stringify(payload),
-      { responseType: 'text' } // Especificamos que esperamos texto plano
-    );
+return this.http.post(
+  this.apiUrl + '/ask',
+  JSON.stringify(payload),
+  { responseType: 'text' }
+);
+
   }
+  
 
   // Obtener todas las consultas
   getAllConsultas(): Observable<ChatGptModel[]> {

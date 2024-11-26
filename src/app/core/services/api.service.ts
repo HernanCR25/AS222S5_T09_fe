@@ -70,8 +70,5 @@ export class ApiService {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
 
-  // Configurar URL base de la API
-  setApiUrl(url: string) {
-    this.apiUrl = url;
-  }
+
 }

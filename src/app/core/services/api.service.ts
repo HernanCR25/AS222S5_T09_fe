@@ -10,35 +10,23 @@ import { environment } from '../../../environments/environment';
 export class ApiService {
 private apiUrl: string = environment.apigpt_fe;
 
-constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-// Enviar consulta a ChatGPT
-sendConsulta(consulta: string): Observable<string> {
-  const payload = [
-    {
-      content: consulta,
-      role: "user",
-    },
-  ];
-
-  return this.http.post<string>(
-    `${this.apiUrl}/ask`, // Asegúrate de que "/ask" esté definido en el backend
-    payload, 
-    {
-      responseType: 'text' as 'json', // Asegura que se trate como texto
-      headers: {
-        'Content-Type': 'application/json',
+  // Enviar consulta a ChatGPT
+  sendConsulta(consulta: string): Observable<string> {
+    const payload = [
+      {
+        content: consulta,
+        role: "user",
       },
-    }
-  ).pipe(
-    catchError((error: any) => {
-      console.error('Error al enviar consulta:', error);
-      return throwError(() => new Error('No se pudo enviar la consulta. Intenta nuevamente.'));
-    })
-  );
-}
+    ];
+    return this.http.post(
+      `${this.apiUrl}/ask`,
+      JSON.stringify(payload),
+      { responseType: 'text' } // Especificamos que esperamos texto plano
+    );
+  }
   
-
   // Obtener todas las consultas
   getAllConsultas(): Observable<ChatGptModel[]> {
     return this.http.get<ChatGptModel[]>(this.apiUrl);

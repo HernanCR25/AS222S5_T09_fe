@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  //apigpt_fe: 'https://potential-meme-gjpqrj4ppvr3p4q7-8085.app.github.dev/api'
+  //apigpt_fe: 'https://opulent-space-zebra-wp475pr4gr7f99pj-8085.app.github.dev/api'
   apigpt_fe: '${API_BACKEND}'
 };
 

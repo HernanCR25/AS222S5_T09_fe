@@ -8,8 +8,8 @@ import { environment } from '../../../environments/environment';
   providedIn: "root",
 })
 export class ApiService {
-  private apiUrl: string = environment.apigpt_fe;
-  // private apiUrl = "https://opulent-space-zebra-wp475pr4gr7f99pj-8085.app.github.dev/api";
+  // private apiUrl: string = environment.apigpt_fe;
+  private apiUrl = "https://bookish-space-parakeet-9rx95r7xx772pg5g-8085.app.github.dev/api";
   constructor(private http: HttpClient) {}
 
   // Enviar consulta a ChatGPT

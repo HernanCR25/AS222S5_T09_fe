@@ -18,4 +18,3 @@ services:
       API_BACKEND: ${API_BACKEND}
     depends_on:
       - back
-

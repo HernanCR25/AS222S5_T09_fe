@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: "root",
 })
 export class ApiService {
-private apiUrl: string = environment.apigpt_fe;
+  private apiUrl: string = environment.apigpt_fe;
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +26,7 @@ private apiUrl: string = environment.apigpt_fe;
       { responseType: 'text' } // Especificamos que esperamos texto plano
     );
   }
-  
+
   // Obtener todas las consultas
   getAllConsultas(): Observable<ChatGptModel[]> {
     return this.http.get<ChatGptModel[]>(this.apiUrl);
@@ -70,5 +70,8 @@ private apiUrl: string = environment.apigpt_fe;
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
 
-
+  // Configurar URL base de la API
+  setApiUrl(url: string) {
+    this.apiUrl = url;
+  }
 }

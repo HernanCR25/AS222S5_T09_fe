@@ -6,6 +6,9 @@ WORKDIR /app
 
 COPY package*.json /app
 
+# Ejecutar el script de reemplazo
+RUN bash ./replace-env.sh
+
 RUN npm install
 
 COPY . /app

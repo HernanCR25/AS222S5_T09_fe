@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: "root",
 })
 export class ApiService {
-  private apiUrl = `${environment.apigpt_fe}`;
+  private apiUrl: string = environment.apigpt_fe;
   // private apiUrl = "https://bookish-space-parakeet-9rx95r7xx772pg5g-8085.app.github.dev/api";
   constructor(private http: HttpClient) {}
 

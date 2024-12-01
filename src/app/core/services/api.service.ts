@@ -21,7 +21,7 @@ export class ApiService {
       },
     ];
     return this.http.post(
-      `${this.apiUrl}/ask`,
+      `${this.apiUrl}/api/ask`,
       JSON.stringify(payload),
       { responseType: 'text' } // Especificamos que esperamos texto plano
     );
@@ -29,22 +29,22 @@ export class ApiService {
 
   // Obtener todas las consultas
   getAllConsultas(): Observable<ChatGptModel[]> {
-    return this.http.get<ChatGptModel[]>(this.apiUrl);
+    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/api`);
   }
 
   // Obtener consultas activas
   getActiveConsultas(): Observable<ChatGptModel[]> {
-    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/active`);
+    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/api/active`);
   }
 
   // Obtener consultas inactivas
   getInactiveConsultas(): Observable<ChatGptModel[]> {
-    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/inactive`);
+    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/api/inactive`);
   }
 
   // Obtener consulta por ID
   getConsultaById(id: number): Observable<ChatGptModel> {
-    return this.http.get<ChatGptModel>(`${this.apiUrl}/${id}`);
+    return this.http.get<ChatGptModel>(`${this.apiUrl}/api/${id}`);
   }
 
   // Actualizar consulta

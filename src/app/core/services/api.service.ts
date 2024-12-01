@@ -27,14 +27,14 @@ export class ApiService {
     );
   }
 
-  // Obtener todas las consultas
+ // Obtener todas las consultas
   getAllConsultas(): Observable<ChatGptModel[]> {
-    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/api`);
+    return this.http.get<ChatGptModel[]>(this.apiUrl);
   }
 
   // Obtener consultas activas
   getActiveConsultas(): Observable<ChatGptModel[]> {
-    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/api/active`);
+    return this.http.get<ChatGptModel[]>(`${this.apiUrl}/active`);
   }
 
   // Obtener consultas inactivas

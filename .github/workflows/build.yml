@@ -19,18 +19,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
-      #DOCKER HUB
+      # DOCKER HUB
       - name: Log in to Docker Hub
         run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
         
-      # Sconfigurar la variable de entorno en el contenedor
-      
-      - name: Set API_BACKEND environment variable for Docker Compose
+      # Establecer la variable de entorno API_BACKEND usando el secreto
+      - name: Set API_BACKEND environment variable
         run: |
           echo "API_BACKEND=${{ secrets.API_BACKEND }}" >> $GITHUB_ENV
 
+      # Construir la imagen Docker
       - name: Build Docker image
-        run: docker-compose build
-      
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/apigptfrontend:latest .
+
+      # Subir la imagen Docker a Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker-compose push
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/apigptfrontend:latest

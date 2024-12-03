@@ -3,9 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  //apigpt_fe: 'https://opulent-space-zebra-wp475pr4gr7f99pj-8085.app.github.dev/api'
-  apigpt_fe: `${API_BACKEND}`
+  apigpt_fe: 'http://localhost:8080'
 };
 
 /*

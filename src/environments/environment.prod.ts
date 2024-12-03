@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apigpt_fe: `${API_BACKEND}/api`
+  apigpt_fe: `${API_BACKEND}`
 };

@@ -10,8 +10,11 @@ RUN npm install
 
 COPY . /app
 
-RUN npm run build --prod
+# Copiar el script de entrada
+COPY entrypoint.sh /app/entrypoint.sh
+
+RUN chmod +x /app/entrypoint.sh
 
 EXPOSE 4200
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["/app/entrypoint.sh"]
